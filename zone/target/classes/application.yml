@@ -1,0 +1,10 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: zone
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://39.100.241.19:3306/love?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
