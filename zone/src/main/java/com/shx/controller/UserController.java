@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
 
-    @RequestMapping("index")
+    @RequestMapping("/index")
     public String home() {
-        return "/index";
+        return "index";
     }
 
 
-    @RequestMapping("signIn")
+    @RequestMapping("/signIn")
     public String  showLogin() {
-        return "/login";
+        return "login";
     }
 
-    @RequestMapping("errorPage")
+    @RequestMapping("/errorPage")
     public String  errorPage() {
-        return "/error";
+        return "error";
     }
 
 }

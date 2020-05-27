@@ -4,6 +4,7 @@ import com.shx.pojo.User;
 import com.shx.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -51,6 +52,8 @@ public class SpringSecurityUserService implements UserDetailsService {
             //菜单
         }
         */
+        list.add(new SimpleGrantedAuthority("ADMIN"));
+
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(username,user.getPassword(),list);
         return userDetails;
     }

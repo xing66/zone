@@ -1,7 +1,9 @@
 package com.shx.pojo;
 
+
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * ClassName: User
@@ -13,7 +15,7 @@ import javax.persistence.Table;
  * @since JDK 1.8
  */
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
     @Id
     private Integer id;
 
