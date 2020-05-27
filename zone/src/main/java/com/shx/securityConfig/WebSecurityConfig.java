@@ -10,8 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 /**
  * ClassName: SecurityConfig
@@ -30,13 +29,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SpringSecurityUserService userDetailsService;
 
-
-
-
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public MypasswordEncoder passwordEncoder() {
+        return new MypasswordEncoder();
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
@@ -51,14 +48,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 // 设置登陆页
-                .formLogin().loginPage("/tlogin")
+                .formLogin().loginPage("/login").loginProcessingUrl("/login")
                 // 设置登陆成功页
-                .defaultSuccessUrl("/").permitAll()
+                .defaultSuccessUrl("/index",true)
+                .failureUrl("/errorPage")
+                .permitAll()
                 // 自定义登陆用户名和密码参数，默认为username和password
    //            .usernameParameter("username")
      //           .passwordParameter("password")
-                .and()
-                .logout().permitAll();
+                .and().sessionManagement().invalidSessionUrl("/signIn")
+                .and().rememberMe().tokenValiditySeconds(1209600)
+                .and().logout().logoutSuccessUrl("/signIn").permitAll();
 
         // 关闭CSRF跨域
         http.csrf().disable();

@@ -2,7 +2,6 @@ package com.shx.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * ClassName: UserController
@@ -17,16 +16,20 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UserController {
 
-    @RequestMapping("/")
+    @RequestMapping("index")
     public String home() {
-        return "index.html";
+        return "/index";
     }
 
 
-    @RequestMapping("/tlogin")
+    @RequestMapping("signIn")
     public String  showLogin() {
-        return "login.html";
+        return "/login";
     }
 
+    @RequestMapping("errorPage")
+    public String  errorPage() {
+        return "/error";
+    }
 
 }
