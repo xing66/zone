@@ -18,6 +18,13 @@
 <!--
 .STYLE1 {color: #666666}
 -->
+			.foot1{
+				height: 30px;
+				width: 100%;
+				background-color: #ddd;
+				position: fixed;
+				bottom: 0;
+			}
         </style>
 </head>
     <body>
@@ -57,12 +64,9 @@
               </div>
                 <canvas id="canvas" width="1100" height="680"></canvas>
             </div>
-            
         </div>
-    <p align="center" >备案号：<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="nofollow">渝ICP备19017307号</a></p>
-    <script>
-    </script>
-
+			<div class="foot1"><p style="font-size:5px;color: #757575" align="center" >备案号：<a href="http://www.beian.miit.gov.cn/" style="font-size:5px;color: #757575" target="_blank" rel="nofollow">渝ICP备19017307号</a></p>
+			</div>
     <script>
     (function(){
         var canvas = $('#canvas');
@@ -222,4 +226,6 @@
         runAsync().start();
     })();
     </script>
-</body></html>
+</body>
+
+</html>

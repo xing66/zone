@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html lang="en" >
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
@@ -9,7 +9,19 @@
 
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-
+  <script type="text/javascript" src="./js/index.js"></script>
+  <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="./js/vue.min.js"></script>
+  <script type="text/javascript" src="./js/axios-0.18.0.js"></script>
+  <style type="text/css">
+    .foot1{
+      height: 30px;
+      width: 100%;
+      background-color: #ddd;
+      position: fixed;
+      bottom: 0;
+    }
+  </style>
 </head>
 <body>
 <div id="app">
@@ -32,7 +44,8 @@
           <h2>LOGIN</h2>
           <input type="text" v-model="username" placeholder="username" />
           <input type="password" v-model="password" placeholder="Password" />
-         <button class="btn_login" onClick="login()">LOGIN</button>
+          <div style="margin-top: 10px;color: red;font-size: 5px">{{errorMsg}}</div>
+         <button class="btn_login" @click="toLogin">LOGIN</button>
         </div>
 		
         <div class="cont_form_sign_up"> <a href="#" onClick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
@@ -44,26 +57,49 @@
   </div>
 </div>
 </div>
-<script src="./js/index.js"></script>
-<script src="./js/jquery-3.5.1.min.js"></script>
-<script src="./js/vue.min.js"></script>
-<script>
+<div class="foot1"><p style="font-size:5px;color: #757575" align="center" >备案号：<a href="http://www.beian.miit.gov.cn/" style="font-size:5px;color: #757575" target="_blank" rel="nofollow">渝ICP备19017307号</a></p>
+</div>
+<script type="text/javascript">
   var app = new Vue({
     el: '#app',
     data:{
         username:"",
-        password:""
+        password:"",
+        errorMsg:""
     },
     methods: {
-      login: function(){
+
+      toLogin(){
+        if (this.username.length <=0){
+          alert("用户名不能为空");
+          return false;
+        }
+        if (this.password.length <=0){
+          confirm("密码不能为空");
+          return false;
+        }
+        var param = {
+          username : this.username,
+          password : this.password
+        };
+       var that = this;
+        axios.post("/api/login",param).then((res)=>{
+            if (res.data.flag){
+
+              // this.$message({
+              //   type:'success',
+              //   message:res.data.message
+              // });
+              window.location.href = "index"
+            }else {
+              that.errorMsg = res.data.message;
+            }
+        })
+        },
+
 
       }
-    }
-
-
   });
-
-
 </script>
 </body>
 </html>
