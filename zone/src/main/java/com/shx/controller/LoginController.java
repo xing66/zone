@@ -1,7 +1,6 @@
 package com.shx.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -17,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController {
 
-    @RequestMapping("/index")
-    public String  index(ModelMap map) {
-        return "index";
+    @RequestMapping("/home")
+    public String  index() {
+        return "home";
     }
 
     @RequestMapping("/login")
-    public String  login(ModelMap map) {
+    public String  login() {
         return "login";
     }
 

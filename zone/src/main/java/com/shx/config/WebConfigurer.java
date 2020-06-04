@@ -3,8 +3,10 @@ package com.shx.config;
 import com.shx.intercepors.LoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -13,18 +15,25 @@ public class WebConfigurer implements WebMvcConfigurer {
     @Autowired
     private LoginInterceptor loginInterceptor;
 
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("login");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        WebMvcConfigurer.super.addViewControllers(registry);
+    }
 
     //注册拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // addPathPatterns("/**") 表示拦截所有的请求，
         // excludePathPatterns("/login", "/register") 表示除了登陆与注册之外，因为登陆注册不需要登陆也可以访问
-        registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/login","/api/login");
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/login","/api/login","/css/**","/js/**","/index_files/**");
     }
 
     //配置静态资源
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
     }
+
+
 }
