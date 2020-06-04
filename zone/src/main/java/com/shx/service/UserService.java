@@ -14,4 +14,6 @@ import com.shx.pojo.User;
 public interface UserService {
 
      User findByUsername(String username);
+
+    User login(User user);
 }

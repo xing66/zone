@@ -17,9 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController {
 
-    @RequestMapping("/signIn")
-    public String  showLogin(ModelMap map) {
+    @RequestMapping("/index")
+    public String  index(ModelMap map) {
         return "index";
+    }
+
+    @RequestMapping("/login")
+    public String  login(ModelMap map) {
+        return "login";
     }
 
 }
