@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 80
 spring:
   application:
     name: zone
@@ -7,4 +7,4 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://39.100.241.19:3306/love?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: mysqlmm520
+    password: mysqlmm520.

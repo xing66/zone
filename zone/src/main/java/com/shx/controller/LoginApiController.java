@@ -26,6 +26,6 @@ public class LoginApiController {
             session.setAttribute("user",loginUser);
             return new Result(true,"登录成功!");
         }
-        return new Result(false,"登录失败!用户名或密码错误!");
+        return new Result(false,"非请勿进~");
     }
 }
