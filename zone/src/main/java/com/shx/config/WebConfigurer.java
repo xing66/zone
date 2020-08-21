@@ -14,17 +14,17 @@ public class WebConfigurer implements WebMvcConfigurer {
     @Autowired
     private LoginInterceptor loginInterceptor;
 
-    @Override
+
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("login");
     }
 
-    @Override
+
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/login","/api/login","/css/**","/js/**","/index_files/**","/");
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/login","/api/login","/css/**","/js/**","/index_files/**","/","/image/**");
     }
 
-    @Override
+
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
     }
 

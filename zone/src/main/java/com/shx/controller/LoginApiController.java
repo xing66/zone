@@ -18,6 +18,7 @@ public class LoginApiController {
     @Autowired
     private UserService userService;
 
+
     @RequestMapping("/login")
     public Result login(@RequestBody User user, HttpServletRequest request){
       User loginUser =   userService.login(user);

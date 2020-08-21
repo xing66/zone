@@ -21,6 +21,16 @@ public class LoginController {
         return "home";
     }
 
+    @RequestMapping("/select")
+    public String  select() {
+        return "select";
+    }
+
+    @RequestMapping("/love")
+    public String  love() {
+        return "love";
+    }
+
     @RequestMapping("/login")
     public String  login() {
         return "login";
