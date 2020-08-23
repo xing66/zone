@@ -4,35 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
     <title>Our Story</title>
-    <link rel="shortcut icon" href=" ./image/favicon.ico"/>
+    <link rel="shortcut icon" href="./image/favicon.ico"/>
     <link rel="stylesheet" href="./css/homePage.css">
+    <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="./js/vue.min.js"></script>
+    <script type="text/javascript" src="./js/axios-0.18.0.js"></script>
 </head>
 <body>
+    <div id="app">
         <div class="left_div">
             <div class="main_div">
-
+                <span style="width: 20%;height: 30%;font-size: 18px;font-style: normal">{{nowDate}}</span>
             </div>
         </div>
 
         <div class="right_div">
-
             <div class="button_div1">
-                <img src="./image/icon_01.png" >
-                <span style="position:absolute; top:90px;">互动</span>
-            </div>
-
+                 <img src="./image/icon_01.png" width="100%" height="100%" >
+                 <span style="position:absolute; top:100px;">互动</span>
+             </div>
 
             <div class="button_div2">
-                <img src="./image/icon_02.png">
-                <span style="position:absolute; top:90px;">相册</span>
+                <img src="./image/icon_02.png" width="100%" height="100%">
+                <span style="position:absolute; top:100px;">相册</span>
             </div>
 
             <div class="button_div3">
-                <img src="./image/icon_03.png" >
-                <span style="position:absolute; top:90px;">日记</span>
+                <img src="./image/icon_03.png" width="100%" height="100%">
+                <span style="position:absolute; top:100px;">日记</    span>
             </div>
-
         </div>
+
+    </div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data:{
+          nowDate:""
+        },
+        methods: {
+            showTime() {
+                var aData = new Date();
+                this.nowDate =
+                    aData.getFullYear() + "-" + (aData.getMonth() + 1) + "-" + aData.getDate();
+            }
+        },
+       created() {
+            this.showTime();
+       }
+    });
+</script>
 </body>
 
 </html>
