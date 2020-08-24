@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <title>Our Story</title>
+    <link rel="shortcut icon" href="../static/image/favicon.ico"/>
+    <link rel="stylesheet" href="../static/css/homePage1.css">
+    <script type="text/javascript" src="../static/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/vue.min.js"></script>
+    <script type="text/javascript" src="../static/js/axios-0.18.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="left_div">
+            <div class="main_div">
+                <div class="main_left">
+                    <div class="photo">
+
+                    </div>
+                    <div class="nowDate">{{nowDate}}</div>
+
+                    <div class="togetherTime">{{"在一起多少天了"}}</div>
+
+                    <hr style="position:relative;top: 14%;width: 90%; height: 1px;background-color: white;border: white"/>
+
+                    <hr style="position:relative;top: 40%; width: 90%;height: 1px;background-color: white;border: white"/>
+                </div>
+
+                <div class="main_right">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="right_div">
+                <table class="table_div1">
+                    <tr>
+                        <td>
+                            <div class="showIf" v-if="unReadMessageNum != '' && unReadMessageNum != 0 && unReadMessageNum <= 99" v-cloak>
+                                <span class="num">{{unReadMessageNum}}</span>
+                            </div>
+                            <div class="showIf" v-else v-cloak>
+                                <span class="num">{{"99+"}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td style="background-color: white;border-radius:15px ;text-align: center">
+                          <img src="../static/image/icon_01.png" width="80%" height="90%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center">互动</td>
+                    </tr>
+                </table>
+
+
+            <table class="table_div2">
+                <tr>
+                    <td>
+                        <div class="showIf" v-if="unReadMessageNum != '' && unReadMessageNum != 0 && unReadMessageNum <= 99" v-cloak>
+                        <span class="num">{{unReadMessageNum}}</span>
+                        </div>
+                        <div class="showIf" v-else v-cloak>
+                            <span class="num">{{"99+"}}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr >
+                    <td style="background-color: white;border-radius:15px ;text-align: center">
+                        <img src="../static/image/icon_02.png" width="80%" height="90%">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center">相册</td>
+                </tr>
+            </table>
+
+
+
+            <table class="table_div3">
+                <tr>
+                    <td>
+                        <div class="showIf" v-if="unReadMessageNum != '' && unReadMessageNum != 0 && unReadMessageNum <= 99" v-cloak>
+                            <span class="num">{{unReadMessageNum}}</span>
+                        </div>
+                        <div class="showIf" v-else v-cloak>
+                            <span class="num">{{"99+"}}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr >
+                    <td style="background-color: white;border-radius:15px ;text-align: center">
+                        <img src="../static/image/icon_03.png" width="80%" height="90%">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center">日记</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data:{
+          nowDate:"",
+          unReadMessageNum:100
+
+        },
+        methods: {
+            showTime() {
+                var aData = new Date();
+                this.nowDate =
+                    aData.getFullYear() + "-" + (aData.getMonth() + 1) + "-" + aData.getDate();
+            }
+        },
+       created() {
+            this.showTime();
+       }
+    });
+</script>
+</body>
+
+</html>
