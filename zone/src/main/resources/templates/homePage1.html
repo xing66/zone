@@ -37,12 +37,14 @@
                 <table class="table_div1">
                     <tr>
                         <td>
-                            <div class="showIf" v-if="unReadMessageNum != '' && unReadMessageNum != 0 && unReadMessageNum <= 99" v-cloak>
+                            <div class="showIf" v-if="unReadMessageNum > 0 && unReadMessageNum <= 99" v-cloak>
                                 <span class="num">{{unReadMessageNum}}</span>
                             </div>
-                            <div class="showIf" v-else v-cloak>
+                            <div class="showIf" v-else-if="unReadMessageNum > 99" v-cloak>
                                 <span class="num">{{"99+"}}</span>
                             </div>
+                            <div class="showIf" v-else v-cloak>
+                                <span class="num"></span>
                         </td>
                     </tr>
                     <tr >
@@ -59,12 +61,14 @@
             <table class="table_div2">
                 <tr>
                     <td>
-                        <div class="showIf" v-if="unReadMessageNum != '' && unReadMessageNum != 0 && unReadMessageNum <= 99" v-cloak>
-                        <span class="num">{{unReadMessageNum}}</span>
+                        <div class="showIf" v-if="unReadMessageNum > 0 && unReadMessageNum <= 99" v-cloak>
+                            <span class="num">{{unReadMessageNum}}</span>
                         </div>
-                        <div class="showIf" v-else v-cloak>
+                        <div class="showIf" v-else-if="unReadMessageNum > 99" v-cloak>
                             <span class="num">{{"99+"}}</span>
                         </div>
+                        <div class="showIf" v-else v-cloak>
+                            <span class="num"></span>
                     </td>
                 </tr>
                 <tr >
@@ -82,11 +86,14 @@
             <table class="table_div3">
                 <tr>
                     <td>
-                        <div class="showIf" v-if="unReadMessageNum != '' && unReadMessageNum != 0 && unReadMessageNum <= 99" v-cloak>
+                        <div class="showIf" v-if="unReadMessageNum > 0 && unReadMessageNum <= 99" v-cloak>
                             <span class="num">{{unReadMessageNum}}</span>
                         </div>
-                        <div class="showIf" v-else v-cloak>
+                        <div class="showIf" v-else-if="unReadMessageNum > 99" v-cloak>
                             <span class="num">{{"99+"}}</span>
+                        </div>
+                        <div class="showIf" v-else v-cloak>
+                            <span class="num"></span>
                         </div>
                     </td>
                 </tr>
@@ -109,13 +116,12 @@
         data:{
           nowDate:"",
           unReadMessageNum:100
-
         },
         methods: {
             showTime() {
                 var aData = new Date();
                 this.nowDate =
-                    aData.getFullYear() + "-" + (aData.getMonth() + 1) + "-" + aData.getDate();
+                    aData.getFullYear() + "/" + (aData.getMonth() + 1) + "/" + aData.getDate();
             }
         },
        created() {
