@@ -19,12 +19,11 @@
 
                     </div>
                     <div class="nowDate">{{nowDate}}</div>
-
                     <div class="togetherTime">{{"在一起多少天了"}}</div>
 
-                    <hr style="position:relative;top: 14%;width: 90%; height: 1px;background-color: white;border: white"/>
+                    <hr style="position:relative;top: 14%;width: 90%; height: 0.1%;background-color: white;border: white"/>
 
-                    <hr style="position:relative;top: 40%; width: 90%;height: 1px;background-color: white;border: white"/>
+                    <hr style="position:relative;top: 40%; width: 90%;height: 0.1%;background-color: white;border: white"/>
                 </div>
 
                 <div class="main_right">
@@ -34,7 +33,7 @@
         </div>
 
         <div class="right_div">
-                <table class="table_div1">
+            <table class="table_div1">
                     <tr>
                         <td>
                             <div class="showIf" v-if="unReadMessageNum > 0 && unReadMessageNum <= 99" v-cloak>
@@ -45,6 +44,7 @@
                             </div>
                             <div class="showIf" v-else v-cloak>
                                 <span class="num"></span>
+                            </div>
                         </td>
                     </tr>
                     <tr >
@@ -57,7 +57,6 @@
                     </tr>
                 </table>
 
-
             <table class="table_div2">
                 <tr>
                     <td>
@@ -69,6 +68,7 @@
                         </div>
                         <div class="showIf" v-else v-cloak>
                             <span class="num"></span>
+                        </div>
                     </td>
                 </tr>
                 <tr >
@@ -80,8 +80,6 @@
                     <td style="text-align: center">相册</td>
                 </tr>
             </table>
-
-
 
             <table class="table_div3">
                 <tr>
@@ -106,9 +104,7 @@
                     <td style="text-align: center">日记</td>
                 </tr>
             </table>
-
         </div>
-
     </div>
 <script type="text/javascript">
     var app = new Vue({
