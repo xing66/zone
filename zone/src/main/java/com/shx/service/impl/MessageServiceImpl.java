@@ -33,7 +33,6 @@ public class MessageServiceImpl implements MessageService {
         String orderBy = "create_time" + " desc";
         PageHelper.startPage(currentPage, pageSize,orderBy);
         PageInfo<Message> pageInfo = new PageInfo<Message>(messageDao.selectAll());
-        pageInfo.getPages();
         Page<Message> page = new Page<Message>(pageInfo.getPages(),pageInfo.getTotal(),currentPage,pageInfo.getList());
         return page;
     }
