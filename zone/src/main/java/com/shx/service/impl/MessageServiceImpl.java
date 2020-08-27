@@ -1,6 +1,5 @@
 package com.shx.service.impl;
 
-import com.github.pagehelper.PageException;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.shx.mapper.MessageDao;

@@ -7,26 +7,27 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
-
-@Table(name="message")
-public class Message implements Serializable {
+@Table(name = "diary")
+public class Diary implements Serializable {
 
     @Id
     private Integer id;
 
-    private String username;
+    private String title;
     private String content;
+    private String author;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
 
-    public Message() {
+    public Diary() {
     }
 
-    public Message(Integer id, String username, String content, Date createTime) {
+    public Diary(Integer id, String title, String content, String author, Date createTime) {
         this.id = id;
-        this.username = username;
+        this.title = title;
         this.content = content;
+        this.author = author;
         this.createTime = createTime;
     }
 
@@ -38,12 +39,12 @@ public class Message implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getTitle() {
+        return title;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -52,6 +53,14 @@ public class Message implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Date getCreateTime() {
