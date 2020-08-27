@@ -34,7 +34,7 @@ public class MessageApiController {
         if (null != messageList && messageList.size() > 0){
             return new Result<Message>(true,"查询成功",messageList);
         }
-        return new Result<Message>(true,"查询失败");
+        return new Result<Message>(false,"查询失败");
     }
 
     @RequestMapping("/selectPage")
@@ -43,7 +43,7 @@ public class MessageApiController {
         if (null != page ){
             return new Result<Message>(true,"查询成功",page);
         }
-        return new Result<Message>(true,"查询失败");
+        return new Result<Message>(false,"查询失败");
     }
 
 }
