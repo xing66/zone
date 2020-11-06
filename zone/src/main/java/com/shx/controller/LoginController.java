@@ -18,7 +18,7 @@ public class LoginController {
 
     @RequestMapping("/home")
     public String  index() {
-        return "home";
+        return "timer";
     }
 
     @RequestMapping("/select")
@@ -38,7 +38,7 @@ public class LoginController {
 
     @RequestMapping("/homePage")
     public String  homePage() {
-        return "homePage";
+        return "homePage1";
     }
 
 

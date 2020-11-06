@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Loving timer</title>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/TimeCircles.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/TimeCircles.css" />
+    <link rel="shortcut icon" href=" ./image/favicon.ico"/>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+            /*background-color: #fffceb;*/
+            background-color: rgb(255, 255, 255);
+        }
+
+        .container {
+            width: 800px;
+            height: 340px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -400px;
+            margin-top: -170px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+        .foot1{
+            height: 30px;
+            width: 100%;
+            background-color: #ddd;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>TIME UNTIL 2019-10-27 💓 CHERISH EVERY DAY</h2>
+            <div id="DateCountdown" data-date="2019-10-27 22:00:00"></div>
+        </div>
+    </div>
+    <script>
+        $("#DateCountdown").TimeCircles();
+    </script>
+    <div class="foot1"><p style="font-size:5px;color: #757575" align="center" >备案号：<a href="http://www.beian.miit.gov.cn/" style="font-size:5px;color: #757575" target="_blank" rel="nofollow">渝ICP备19017307号</a></p>
+    </div>
+</body>
+
+</html>
